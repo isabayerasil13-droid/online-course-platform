@@ -60,6 +60,6 @@ class Course(models.Model):
 # Course.objects.filter(teacher=request.user)
 ```
 
-В будущем команды `python manage.py makemigrations` и `python manage.py migrate` создадут таблицы в настроенной БД. **Сейчас ни модели, ни миграции не выполнялись.**
+В будущем команды `python manage.py makemigrations` и `python manage.py migrate` создадут таблицы в настроенной БД. **Теперь в учебном прототипе реализованы четыре модели и первоначальная миграция; полная схема с заданиями и оценками остаётся планом.**
 
 [ER-диаграмма](../DIAGRAMS.md).

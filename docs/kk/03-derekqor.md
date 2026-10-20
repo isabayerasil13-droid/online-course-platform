@@ -47,6 +47,6 @@ class Course(models.Model):
 
 # Course.objects.filter(teacher=request.user)
 ```
-Кейін `python manage.py makemigrations` және `python manage.py migrate` командалары орындалады. **Қазір нақты модельдер мен миграциялар жасалған жоқ.**
+Кейін `python manage.py makemigrations` және `python manage.py migrate` командалары орындалады. **Қазір оқу прототипінде төрт модель мен алғашқы миграция жасалды; тапсырмалар мен бағалар толық нұсқаға жоспарланған.**
 
 [ER диаграммасы](../DIAGRAMS.md).
