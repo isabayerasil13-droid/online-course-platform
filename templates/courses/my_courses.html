@@ -1,0 +1,15 @@
+{% extends 'base.html' %}{% load static %}
+{% block title %}Моё обучение — OpenStudy{% endblock %}
+{% block content %}
+<section class="wrap profile-section">
+  <span class="eyebrow eyebrow-dark">ЛИЧНЫЙ КАБИНЕТ</span><h1>Моё обучение</h1><p class="muted">Курсы, на которые ты записан, и твой прогресс.</p>
+  <div class="my-grid">
+  {% for card in cards %}
+  <article class="my-card">
+    <img src="{% static card.enrollment.course.image %}" alt="Обложка курса">
+    <div><span class="course-category">{{ card.enrollment.course.get_category_display }}</span><h3>{{ card.enrollment.course.title }}</h3><div class="progress-label"><span>Пройдено {{ card.done }} из {{ card.total }} уроков</span><strong>{{ card.percentage }}%</strong></div><div class="progress-track"><div class="progress-fill" style="width: {{ card.percentage }}%"></div></div><a class="btn btn-dark btn-small" href="{{ card.enrollment.course.get_absolute_url }}">Продолжить →</a></div>
+  </article>
+  {% empty %}<div class="empty-state"><h3>У тебя ещё нет курсов</h3><p>Загляни в каталог и запишись на понравившийся курс.</p><a class="btn btn-primary" href="{% url 'catalog' %}">Выбрать курс</a></div>{% endfor %}
+  </div>
+</section>
+{% endblock %}

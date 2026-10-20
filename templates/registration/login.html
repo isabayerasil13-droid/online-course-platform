@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Вход — OpenStudy{% endblock %}
+{% block content %}
+<div class="auth-shell"><div class="auth-card"><span class="eyebrow eyebrow-dark">С ВОЗВРАЩЕНИЕМ</span><h1>Вход в аккаунт</h1><p>Продолжи обучение с того места, где остановился.</p>
+  {% if form.non_field_errors %}<div class="form-errors">{{ form.non_field_errors }}</div>{% endif %}
+  <form method="post" class="auth-form">{% csrf_token %}
+    <label for="id_username">Имя пользователя</label>{{ form.username }}
+    <label for="id_password">Пароль</label>{{ form.password }}
+    <input type="hidden" name="next" value="{{ next }}">
+    <button type="submit" class="btn btn-primary btn-block">Войти</button>
+  </form>
+  <div class="auth-foot">Нет аккаунта? <a href="{% url 'register' %}">Зарегистрироваться</a></div>
+</div></div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Регистрация — OpenStudy{% endblock %}
+{% block content %}
+<div class="auth-shell"><div class="auth-card"><span class="eyebrow eyebrow-dark">НАЧНИ УЧИТЬСЯ</span><h1>Создать аккаунт</h1><p>Регистрация бесплатная. Нужны только логин и пароль.</p>
+  <form method="post" class="auth-form">{% csrf_token %}
+    <label for="id_username">Имя пользователя</label>{{ form.username }}{% for error in form.username.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
+    <label for="id_password1">Пароль</label>{{ form.password1 }}{% for error in form.password1.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
+    <label for="id_password2">Повтори пароль</label>{{ form.password2 }}{% for error in form.password2.errors %}<small class="field-error">{{ error }}</small>{% endfor %}
+    <button type="submit" class="btn btn-primary btn-block">Зарегистрироваться</button>
+  </form>
+  <div class="auth-foot">Уже есть аккаунт? <a href="{% url 'login' %}">Войти</a></div>
+</div></div>
+{% endblock %}
